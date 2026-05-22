@@ -285,7 +285,7 @@
         <div class="dogs-container" id="dogs-container"></div>
 
         <div class="message hidden" id="dog-message">
-            � Click on the dogs to hear them bark! �
+            🐶 Click on the dogs and flowers! 🌸
         </div>
     </div>
 
@@ -294,7 +294,7 @@
     </div>
 
     <audio id="bgMusic" loop>
-        <source src="https://www.mboxdrive.com/saeng-il-chuk-ha-ham-ni-da-happy-birthday-song-in-korean.mp3" type="audio/mpeg">
+        <source src="https://cdn.pixabay.com/download/audio/2022/02/07/audio_d1718ab41b.mp3" type="audio/mpeg">
     </audio>
 
     <script>
@@ -378,10 +378,10 @@
             }
         }
         
-        // Tạo chó ở vị trí ngẫu nhiên khắp màn hình
+        // Tạo chó và hoa ở vị trí ngẫu nhiên khắp màn hình
         function createDogs() {
             const dogsContainer = document.getElementById('dogs-container');
-            const dogEmojis = ['�', '�', '🦮', '�‍🦺', '�', '�', '�', '🦴', '�', '�', '�', '🦮', '�', '�‍🦺', '�'];
+            const dogEmojis = ['🐶', '🐕', '🌸', '🌺', '🌻', '🌷', '🌹', '💐', '🌼', '🏵️', '🐶', '🐕', '🌸', '🌺', '🌻'];
             
             dogEmojis.forEach((emoji, index) => {
                 const dog = document.createElement('div');
@@ -395,7 +395,9 @@
                 dog.style.left = randomLeft + '%';
                 
                 dog.onclick = function(e) {
-                    bark();
+                    if (emoji === '🐶' || emoji === '🐕') {
+                        bark();
+                    }
                     shootConfetti(e.clientX, e.clientY);
                 };
                 
